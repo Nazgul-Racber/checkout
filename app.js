@@ -123,5 +123,9 @@ const calculateCartPrice = () => {
   if (productList.querySelectorAll(".main__product").length == 0) {
     productList.innerText = "No Product!";
     navbarList.firstElementChild.innerText = "My Cart";
+  } else {
+    navbarList.firstElementChild.innerText = `My Cart (${
+      productList.querySelectorAll(".main__product").length
+    } Products)`;
   }
 };
