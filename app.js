@@ -120,5 +120,8 @@ const calculateCartPrice = () => {
     taxPrice.toFixed(2);
   document.querySelector("#cart-total").lastElementChild.innerText = totalPrice;
 
-  
+  if (productList.querySelectorAll(".main__product").length == 0) {
+    productList.innerText = "No Product!";
+    navbarList.firstElementChild.innerText = "My Cart";
+  }
 };
