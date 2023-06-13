@@ -7,7 +7,9 @@ window.addEventListener("load", () => {
   // localStorage.setItem("taxRate", taxRate);
   // localStorage.setItem("shippingPrice", shippingPrice);
   // localStorage.setItem("freeShippingPrice", freeShippingPrice);
-  ///
+
+  ///total cart calc.
+  calculateCartPrice();
 });
 
 const navbarList = document.querySelector(".nav__list");
@@ -46,6 +48,7 @@ productList.addEventListener("click", (e) => {
         )
       ) {
         e.target.closest(".main__product").remove();
+        calculateCartPrice();
       }
     }
   }
@@ -64,11 +67,12 @@ productList.addEventListener("click", (e) => {
       )
     ) {
       e.target.closest(".main__product").remove();
+      calculateCartPrice();
     }
   } else {
     alert("other element clicked");
   }
-  calculateCartPrice();
+  //calculateCartPrice();
 });
 
 //target == minus || plus btn
@@ -84,6 +88,7 @@ const calculateProductPrice = (btn) => {
     price * quantity
   ).toFixed(2);
   // console.log(typeof (price * quantity).toFixed(2));
+  calculateCartPrice();
 };
 
 const calculateCartPrice = () => {
